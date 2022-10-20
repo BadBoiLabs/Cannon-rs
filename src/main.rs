@@ -19,7 +19,7 @@ pub extern "C" fn _start() {
     // Do something amazing (‾⌣‾)
 
     // Write the output
-    immou::output([0; 32]);
+    iommu::output([0; 32]);
 }
 
 #[panic_handler]
