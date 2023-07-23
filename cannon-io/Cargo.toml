@@ -3,7 +3,7 @@ name = "cannon-io"
 authors = ["Willem Olding <willemolding@gmail.com>"]
 description = "A crate that encapsulates all supported interactions between the cannon guest (provable progam) and the host. This includes stdout, preimage oracle, hinting and exit codes."
 license = "LGPL-3.0"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 
 [dependencies]

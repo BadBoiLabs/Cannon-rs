@@ -3,7 +3,7 @@ name = "cannon-heap"
 authors = ["Willem Olding <willemolding@gmail.com>"]
 description = "A heap allocator suitable for Cannon MIPS executables"
 license = "LGPL-3.0"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 
 [dependencies]

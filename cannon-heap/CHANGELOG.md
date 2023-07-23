@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1](https://github.com/BadBoiLabs/Cannon-rs/compare/cannon-heap-v0.1.0...cannon-heap-v0.1.1) - 2023-07-23
+
+### Other
+- release
+
 ## [0.1.0](https://github.com/BadBoiLabs/Cannon-rs/releases/tag/cannon-heap-v0.1.0) - 2023-07-23
 
 ### Other
