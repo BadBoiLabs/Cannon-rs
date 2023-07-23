@@ -5,5 +5,4 @@ members = [
     "cannon-io",
     "cargo-cannon",
     "preimage-server",
-    "cannon-test",
 ]
