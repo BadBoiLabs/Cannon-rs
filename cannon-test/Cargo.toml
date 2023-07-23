@@ -1,0 +1,18 @@
+[package]
+name = "cannon-test"
+version = "0.1.0"
+authors = ["Willem Olding <willemolding@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+cannon-io = { path = "../cannon-io" }
+cannon-heap = { path = "../cannon-heap" }
+log = "0.4.19"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+lto = "fat"
+codegen-units = 1

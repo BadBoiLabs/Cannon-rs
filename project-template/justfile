@@ -1,0 +1,5 @@
+
+default: build
+
+build:
+	docker run --rm -v `pwd`/..:/code -w="/code" ghcr.io/badboilabs/cannon-rs/builder:main cargo build --release -Zbuild-std 

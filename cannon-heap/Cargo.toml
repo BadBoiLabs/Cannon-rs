@@ -1,0 +1,8 @@
+[package]
+name = "cannon-heap"
+authors = ["Willem Olding <willemolding@gmail.com>"]
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+linked_list_allocator = "0.10.5"

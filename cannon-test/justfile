@@ -1,0 +1,15 @@
+
+default: build load_elf run
+
+build:
+	docker run --rm -v `pwd`/..:/code -w="/code" ghcr.io/badboilabs/cannon-rs/builder:main cargo build -p cannon-test --release -Zbuild-std 
+
+interactive:
+	docker run --rm -it -v `pwd`/..:/code/  --entrypoint=/bin/bash ghcr.io/badboilabs/cannon-rs/builder:main
+
+load_elf:
+	cannon load-elf --path ../target/mips-unknown-none/release/cannon-test --patch stack
+
+run:
+	RUST_LOG=debug cannon run --input ./state.json --info-at never --stop-at never -- cargo run --manifest-path ../preimage-server/Cargo.toml ./preimages.json
+
