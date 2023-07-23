@@ -1,6 +1,7 @@
 [package]
 name = "preimage-server"
 authors = ["Willem Olding <willemolding@gmail.com>"]
+description = "A simple preimage server process compatible with the Optimism `cannon` emulator. Can serve preimages from a json file."
 license = "LGPL-3.0"
 version = "0.1.0"
 edition = "2021"
