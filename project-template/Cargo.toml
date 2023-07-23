@@ -1,0 +1,17 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+
+[dependencies]
+cannon-io = { git = "https://github.com/badboilabs/Cannon-rs" }
+cannon-heap = { git = "https://github.com/badboilabs/Cannon-rs" }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+lto = "fat"
+codegen-units = 1
