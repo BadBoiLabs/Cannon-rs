@@ -3,7 +3,8 @@ name: Create and publish the Cannon Builder Docker image
 
 on:
   push:
-    branches: ['main']
+    branches:
+      - release
 
 env:
   REGISTRY: ghcr.io
