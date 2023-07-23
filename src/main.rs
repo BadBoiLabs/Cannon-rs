@@ -1,45 +1,38 @@
-#![feature(alloc_error_handler)] // no_std and allocator support is not stable.
-#![feature(stdsimd)] // for `mips::break_`. If desired, this could be replaced with asm.
 #![no_std]
 #![no_main]
+#![feature(core_intrinsics)]
+#![feature(alloc_error_handler)]
+
+/// Defines the size of the heap in bytes
+/// Changing this will change the size of the resulting json file built by converting the elf file
+/// How big you can make this depends on the program size but it should be possible to make it very large (close to 4GB).
+/// See https://image1.slideserve.com/3443033/memory-map-l.jpg
+const HEAP_SIZE: usize = 0x400000;
+
+use cannon_io::prelude::*;
+use cannon_heap::init_heap;
 
 extern crate alloc;
-extern crate rlibc; // memcpy, and friends
-
-mod heap;
-mod iommu;
 
 /// Main entrypoint for a verifiable computation
 #[no_mangle]
 pub extern "C" fn _start() {
-    unsafe { heap::init() };
-    // grab the input hash
-    let input_hash = iommu::input_hash();
+    init_heap!(HEAP_SIZE);
 
-    // Do something amazing (‾⌣‾)
+    print("Lets do something amazing!\n");
 
-    // Write the output
-    iommu::output([0; 32]);
+    exit(0); // 0 code indicates success
 }
 
 #[panic_handler]
 fn panic(info: &core::panic::PanicInfo) -> ! {
-    // Uncomment code below if you're in trouble
-    /*
     let msg = alloc::format!("Panic: {}", info);
-    iommu::print(&msg);
-    */
-
-    unsafe {
-        core::arch::mips::break_();
-    }
+    let _ = print(&msg);
+    exit(2);
 }
 
 #[alloc_error_handler]
 fn alloc_error_handler(_layout: alloc::alloc::Layout) -> ! {
-    // NOTE: avoid `panic!` here, technically, it might not be allowed to panic in an OOM situation.
-    //       with panic=abort it should work, but it's no biggie use `break` here anyway.
-    unsafe {
-        core::arch::mips::break_();
-    }
+    let _ = print("alloc error! (probably out of memory)");
+    exit(3);
 }

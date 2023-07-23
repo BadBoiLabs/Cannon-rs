@@ -5,11 +5,8 @@ authors = ["{{authors}}"]
 edition = "2021"
 
 [dependencies]
-linked_list_allocator = "0.10.3"
-rlibc = "1.0.0"
-
-[build-dependencies]
-cc = "*"
+cannon-io = { git = "https://github.com/badboilabs/Cannon-rs" }
+cannon-heap = { git = "https://github.com/badboilabs/Cannon-rs" }
 
 [profile.dev]
 panic = "abort"
