@@ -11,7 +11,7 @@ A comprehensive collection of crates and tools to support development of Cannon 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Cannon-rs aims to support the emerging number of projects using Rust to develop provable programs for Optimism Cannon. This is the evolution of the rust-cannon-template supported by the Optimism RetroPGG round 2.
+Cannon-rs aims to support the emerging number of projects using Rust to develop provable programs for Optimism Cannon. This is the evolution of the rust-cannon-template supported by the Optimism RetroPGF round 2.
 
 Advantages of using Rust are:
 
