@@ -1,2 +1,6 @@
 [workspace]
 semver_check = true # enable API breaking changes check
+
+[[package]]
+name = "cargo-cannon"
+publish = false
