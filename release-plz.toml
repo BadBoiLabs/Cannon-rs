@@ -1,5 +1,5 @@
 [workspace]
-semver_check = false # disable API breaking changes checks
+semver_check = true # disable API breaking changes checks
 
 [[package]] 
 name = "cannon-test"
