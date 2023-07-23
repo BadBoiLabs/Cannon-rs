@@ -1,0 +1,7 @@
+[workspace]
+semver_check = false # disable API breaking changes checks
+
+[[package]] 
+name = "cannon-test"
+git_release_enable = false
+publish = false
