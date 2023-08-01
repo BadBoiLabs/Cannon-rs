@@ -5,7 +5,7 @@ This repo contains a build system and a minimal Rust program for building MIPS b
 It is intended to be used as a template with `cargo generate` e.g.
 
 ```shell
-cargo generate BadBoiLabs/rust-cannon-template
+cargo generate BadBoiLabs/Cannon-rs
 ```
 
 ## Building
