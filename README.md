@@ -35,24 +35,18 @@ The [Optimism Cannon emulator](https://github.com/ethereum-optimism/optimism/tre
 
 Cannon-rs provides a simple CLI tool for serving preimages stored in a JSON file. This can be extended with new implementations of the `PreimageProvider` trait in order to provide a tool suited to your application.
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-Install the `cargo cannon` tool by running
-
-```shell
-cargo install --git https://github.com/badboilabs/Cannon-rs cargo-cannon
-```
-
 ### Prerequisites
 
 Cross compiling for Cannon requires:
 - Docker
+- Just (`cargo install just`)
 
-<!-- USAGE EXAMPLES -->
-## Usage
+<!-- GETTING STARTED -->
+## Getting Started
 
-TODO
+1. Copy the `project-template` from this repo to get started
+2. Build something awesome in Rust 🦀
+3. Build for Cannon using `just build`
 
 ## Roadmap
 
