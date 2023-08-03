@@ -19,8 +19,14 @@ async fn main() -> Result<()> {
     env_logger::init();
     let args = cli::Cli::parse();
 
-    let json_str = std::fs::read_to_string(args.file).expect("Unable to read preimage file");
-    let preimages = preimage_from_json_str(&json_str);
+    // check if args.path is a directory
+    let preimages = if args.path.is_dir() {
+        preimage_from_dir(args.path)
+    } else {
+        // else assume it is a json file
+        let json_str = std::fs::read_to_string(args.path).expect("Unable to read preimage file");
+        preimage_from_json_str(&json_str)
+    };
 
     let reader = unsafe { File::from_raw_fd(PCLIENT_RFD) };
     let writer = unsafe { File::from_raw_fd(PCLIENT_WFD) };
@@ -51,6 +57,27 @@ fn preimage_from_json_str(json: &str) -> HashMap<[u8; 32], Vec<u8>> {
     }
     debug!("Loaded {} preimages from file", preimages.len());
 
+    preimages
+}
+
+/// Load a directory full of files named with their preimage key
+///
+/// # Panics
+/// This will panic if:
+///     - any file name is not valid hex or not 32 bytes
+fn preimage_from_dir(dir: std::path::PathBuf) -> HashMap<[u8; 32], Vec<u8>> {
+    let mut preimages = HashMap::<[u8; 32], Vec<u8>>::new();
+    for file in std::fs::read_dir(dir).expect("Unable to read directory") {
+        let file = file.expect("Unable to read file");
+        let fname = file.file_name();
+        let k = hex::decode(fname.to_str().unwrap()).expect("invalid hex in filename");
+        let mut key = [0; 32];
+        key.copy_from_slice(&k);
+
+        let value = std::fs::read(file.path()).expect("Unable to read file");
+        preimages.insert(key, value);
+    }
+    debug!("Loaded {} preimages from directory", preimages.len());
     preimages
 }
 
