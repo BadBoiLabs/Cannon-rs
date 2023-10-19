@@ -9,3 +9,4 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.72"
 clap = { version = "4.3.15", features = ["derive"] }
+cargo-generate = "0.18.4"
