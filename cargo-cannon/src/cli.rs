@@ -50,5 +50,5 @@ pub struct Build {
 #[derive(Parser, Debug)]
 pub struct New {
     /// Path to create the new Cannon project
-    pub path: PathBuf,
+    pub path: String,
 }
