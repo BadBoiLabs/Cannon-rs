@@ -8,6 +8,8 @@
 
 A comprehensive collection of crates and tools to support development of Cannon programs in Rust
 
+Thinking about contributing? There are bounties available for meaningful contributions via our [OnlyDust page!](https://app.onlydust.xyz/p/cannon-rs)
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
